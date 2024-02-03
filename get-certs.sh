@@ -15,7 +15,7 @@ fi
 while read line; do
   # HOSTS=$(echo -n "-d \"${line}\"" | sed 's/,/" \-d "/g')
   HOSTS=$(echo -n "-d ${line}" | sed 's/,/ \-d /g')
-  certbot certonly --non-interactive --agree-tos -m ${EMAIL} --dns-rfc2136 --dns-rfc2136-credentials ${CONFIG_FILE} ${HOSTS} 
+  certbot certonly --non-interactive --agree-tos -m ${EMAIL} --expand --dns-rfc2136 --dns-rfc2136-credentials ${CONFIG_FILE} ${HOSTS}
 done < ${HOSTS_FILE}
 
 sleep ${SLEEP_TIME}
