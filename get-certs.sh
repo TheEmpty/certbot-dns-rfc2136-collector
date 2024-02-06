@@ -12,6 +12,8 @@ then
   exit 5
 fi
 
+while true; do
+
 while read line; do
   # HOSTS=$(echo -n "-d \"${line}\"" | sed 's/,/" \-d "/g')
   HOSTS=$(echo -n "-d ${line}" | sed 's/,/ \-d /g')
@@ -20,3 +22,4 @@ done < ${HOSTS_FILE}
 
 sleep ${SLEEP_TIME}
 
+done
